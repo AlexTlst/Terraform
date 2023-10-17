@@ -7,6 +7,7 @@ resource "aws_launch_configuration" "as_conf" {
   security_groups = [aws_security_group.web-sg.id]
 }
 
+
 resource "aws_placement_group" "test_lesson_asg" {
   name     = "test_lesson_asg"
   strategy = "cluster"
@@ -51,7 +52,7 @@ resource "aws_autoscaling_policy" "cpu_policy" {
   estimated_instance_warmup = 120
   target_tracking_configuration {
     predefined_metric_specification {
-      predefined_metric_type = "ASGAverageCPUUtilization"
+      predefined_metric_type = "ASGAverageCPUUtilization" #metric to start asg
     }
     target_value = 40.0
   }
