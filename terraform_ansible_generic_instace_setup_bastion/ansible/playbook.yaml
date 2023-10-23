@@ -75,7 +75,7 @@
       become_user: ubuntu
       shell: brew install tfenv
       ignore_errors: yes
-
+      
     - name: install terraform latest
       become_user: ubuntu
       shell: tfenv install latest && tfenv use latest
